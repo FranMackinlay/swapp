@@ -10,7 +10,7 @@
       data-aos-easing="ease-in-out" v-for="(item, index) in planets" class="col-3 mb-3" v-bind:item="item"></Card>
     </div>
     <div v-else>
-      <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>
+      <b-spinner variant="warning" style="width: 3rem; height: 3rem;"></b-spinner>
     </div>
   </div>
   <div class="container" v-if="planets.length">
