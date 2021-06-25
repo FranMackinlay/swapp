@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Vue logo" src="../assets/swapp-logo.png">
+    <MainScreen msg="Welcome to Swapp"/>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import MainScreen from '../components/MainScreen/main-screen.component.vue';
 
 export default Vue.extend({
   name: 'Home',
   components: {
-    HelloWorld,
+    MainScreen,
   },
 });
 </script>
+
+<style scoped lang="less" src="./home.module.less"></style>
