@@ -4,6 +4,9 @@ import Home from '../components/Home/home.vue';
 import People from '../components/People/people.vue';
 import Starships from '../components/Starships/starships.vue';
 import Planets from '../components/Planets/planets.vue';
+import PlanetDetails from '../components/PlanetDetails/planetDetails.vue';
+import StarshipDetails from '../components/StarshipDetails/starshipDetails.vue';
+import PersonDetails from '../components/PersonDetails/personDetails.vue';
 
 Vue.use(VueRouter);
 
@@ -31,7 +34,19 @@ const routes: Array<RouteConfig> = [
   {
     path: '/people/:id',
     name: 'PersonDetails',
-    // component: PersonDetails,
+    component: PersonDetails,
+    props: true,
+  },
+  {
+    path: '/starships/:id',
+    name: 'StarshipDetails',
+    component: StarshipDetails,
+    props: true,
+  },
+  {
+    path: '/planets/:id',
+    name: 'PlanetDetails',
+    component: PlanetDetails,
     props: true,
   },
 ];
