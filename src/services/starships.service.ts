@@ -3,10 +3,10 @@ import axios from 'axios';
 import PATHS from '../config/core.constants';
 
 const StarshipsSrv = {
-  getStarships: async (): Promise<Starships> => {
+  getStarships: async (page: number): Promise<Starships> => {
     const { data } = await axios({
       method: 'get',
-      url: `${PATHS.STARSHIPS}`,
+      url: `${PATHS.STARSHIPS}?page=${page}`,
     });
     return data;
   },

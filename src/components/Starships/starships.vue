@@ -13,15 +13,32 @@ export default Vue.extend({
   },
   data: () => ({
     starships: {},
+    page: 1,
+    rootObject: {},
   }),
   methods: {
-    getPeople: async () => {
-      const starships = await StarshipsSrv.getStarships();
+    getStarships: async (page: number) => {
+      const starships = await StarshipsSrv.getStarships(page);
       return starships;
+    },
+    async prevPage(): Promise<void> {
+      this.starships = {};
+      this.page -= 1;
+      const data = await this.getStarships(this.page);
+      this.rootObject = data;
+      this.starships = data.results;
+    },
+    async nextPage(): Promise<void> {
+      this.starships = {};
+      this.page += 1;
+      const data = await this.getStarships(this.page);
+      this.rootObject = data;
+      this.starships = data.results;
     },
   },
   async created() {
-    const data = await this.getPeople();
+    const data = await this.getStarships(this.page);
+    this.rootObject = data;
     data.results = data.results.map((item: Starship) => {
       // eslint-disable-next-line no-param-reassign
       item.url = item.url.replace('https://swapi.dev/api', '');

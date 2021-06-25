@@ -13,4 +13,10 @@
       <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>
     </div>
   </div>
+  <div class="container" v-if="starships.length">
+    <div class="fm-df fm-aliic" :class="!rootObject.previous ? 'fm-jucend' : 'fm-jucb'">
+      <b-button class="" v-if="rootObject.previous" v-on:click="prevPage" variant="outline-primary">Prev</b-button>
+      <b-button class="" v-if="rootObject.next" v-on:click="nextPage" variant="outline-primary">Next</b-button>
+    </div>
+  </div>
 </div>
