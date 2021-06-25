@@ -19,6 +19,7 @@ export default Vue.extend({
       const normalizedPerson: Person = person;
       normalizedPerson.homeworld = person.homeworld.replace('https://swapi.dev/api', '');
       normalizedPerson.starships = normalizedPerson.starships.map((starship: string) => starship.replace('https://swapi.dev/api', ''));
+      console.log('normalizedPerson.starships', normalizedPerson.starships);
       return normalizedPerson;
     },
   },

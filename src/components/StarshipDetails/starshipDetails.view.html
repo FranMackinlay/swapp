@@ -1,4 +1,28 @@
 
 <div id="starship-details-component">
-  <h1>hello</h1>
+  <b-button class="fm-abs left-1 top-1"href="/starships" variant="secondary">Go back</b-button>
+  <div class="col-md-6 pt-5 mt-5 m-auto">
+    <div v-if="starship.name">
+      <b-card no-body>
+
+        <b-card-body>
+          <b-card-title>{{starship.name}}</b-card-title>
+        </b-card-body>
+
+        <b-list-group flush>
+          <b-list-group-item>MGLT: {{starship.MGLT}}</b-list-group-item>
+          <b-list-group-item>Cargo capacity: {{starship.cargo_capacity}}</b-list-group-item>
+          <b-list-group-item>Cost in credits: {{starship.cost_in_credits}}</b-list-group-item>
+          <b-list-group-item>Max atmospheric speed: {{starship.max_atmosphering_speed}}</b-list-group-item>
+          <b-list-group-item>Model: {{starship.model}}</b-list-group-item>
+          <b-list-group-item class="fm-df fm-global-center" v-if="starship.pilots && starship.pilots.length">
+            <b-button v-for="(pilot, index) in starship.pilots" class="mx-2" type="button" variant="primary" v-bind:href="pilot">Pilot {{index + 1}}</b-button>
+          </b-list-group-item>
+        </b-list-group>
+      </b-card>
+    </div>
+    <div v-else>
+      <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>
+    </div>
+  </div>
 </div>

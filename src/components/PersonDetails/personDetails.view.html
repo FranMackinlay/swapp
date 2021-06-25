@@ -2,7 +2,7 @@
 <div id="person-details-component">
   <b-button class="fm-abs left-1 top-1"href="/people" variant="secondary">Go back</b-button>
   <div class="col-md-6 pt-5 mt-5 m-auto">
-    <div>
+    <div v-if="person.name">
       <b-card no-body>
 
         <b-card-body>
@@ -18,11 +18,14 @@
           <b-list-group-item>
             <b-button type="button" variant="primary" v-bind:href="person.homeworld">Home planet</b-button>
           </b-list-group-item>
-          <b-list-group-item class="fm-df fm-global-center" v-if="person.starships.length">
+          <b-list-group-item class="fm-df fm-global-center" v-if="person.starships && person.starships.length">
             <b-button v-for="(starship, index) in person.starships" class="mx-2" type="button" variant="primary" v-bind:href="starship">Starship {{index + 1}}</b-button>
           </b-list-group-item>
         </b-list-group>
       </b-card>
+    </div>
+    <div v-else>
+      <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>
     </div>
   </div>
 </div>
