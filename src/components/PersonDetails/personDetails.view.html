@@ -1,7 +1,11 @@
 
 <div id="person-details-component">
   <b-button class="fm-abs left-1 top-1"href="/people" variant="secondary">Go back</b-button>
-  <div class="col-md-6 pt-5 mt-5 m-auto">
+  <div class="col-md-6 pt-5 mt-5 m-auto" data-aos="fade-up"
+      v-bind:data-aos-offset="100"
+      v-bind:data-aos-delay="100"
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out">
     <div v-if="person.name">
       <b-card no-body>
 

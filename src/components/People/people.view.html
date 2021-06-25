@@ -1,9 +1,14 @@
-<div id="people-component">
+<div id="people-component" >
   <b-button class="fm-abs left-1 top-1"href="/" variant="secondary">Go back</b-button>
   <h1 class="py-5">People</h1>
   <div class="container">
     <div class="row" v-if="people.length">
-      <Card v-for="item in people" class="col-3 mb-3" v-bind:item="item"></Card>
+      <Card data-aos="flip-up"
+      v-bind:data-aos-offset="index * 10"
+      v-bind:data-aos-delay="index * 100"
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out"
+      v-for="(item, index) in people" class="col-3 mb-3" v-bind:item="item"></Card>
     </div>
     <div v-else>
       <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>

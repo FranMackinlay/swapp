@@ -3,7 +3,11 @@
   <h1 class="py-5">Starships</h1>
   <div class="container">
     <div class="row" v-if="starships.length">
-      <Card v-for="item in starships" class="col-3 mb-3" v-bind:item="item"></Card>
+      <Card data-aos="flip-up"
+      v-bind:data-aos-offset="index * 10"
+      v-bind:data-aos-delay="index * 100"
+      data-aos-duration="500"
+      data-aos-easing="ease-in-out" v-for="(item, index) in starships" class="col-3 mb-3" v-bind:item="item"></Card>
     </div>
     <div v-else>
       <b-spinner style="width: 3rem; height: 3rem;"></b-spinner>
