@@ -1,11 +1,28 @@
 
 <div id="person-details-component">
-  <b-card
-    v-bind:title="item.name"
-    tag="article"
-    style="height: 100%;"
-    class="mb-2"
-  >
-    <b-button v-bind:href="item.url" variant="primary">View {{item.name}}'s details</b-button>
-  </b-card>
+  <b-button class="fm-abs left-1 top-1"href="/people" variant="secondary">Go back</b-button>
+  <div class="col-md-6 pt-5 mt-5 m-auto">
+    <div>
+      <b-card no-body>
+
+        <b-card-body>
+          <b-card-title>{{person.name}}</b-card-title>
+        </b-card-body>
+
+        <b-list-group flush>
+          <b-list-group-item>Gender: {{person.gender}}</b-list-group-item>
+          <b-list-group-item>Height: {{person.height}}</b-list-group-item>
+          <b-list-group-item>Skin color: {{person.skin_color}}</b-list-group-item>
+          <b-list-group-item>Hair color: {{person.hair_color}}</b-list-group-item>
+          <b-list-group-item>Birth year: {{person.birth_year}}</b-list-group-item>
+          <b-list-group-item>
+            <b-button type="button" variant="primary" v-bind:href="person.homeworld">Home planet</b-button>
+          </b-list-group-item>
+          <b-list-group-item class="fm-df fm-global-center" v-if="person.starships.length">
+            <b-button v-for="(starship, index) in person.starships" class="mx-2" type="button" variant="primary" v-bind:href="starship">Starship {{index + 1}}</b-button>
+          </b-list-group-item>
+        </b-list-group>
+      </b-card>
+    </div>
+  </div>
 </div>
