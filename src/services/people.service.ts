@@ -3,10 +3,10 @@ import People, { Person } from '../interfaces/people.interface';
 import PATHS from '../config/core.constants';
 
 const PeopleSrv = {
-  getPeople: async (): Promise<People> => {
+  getPeople: async (page: number): Promise<People> => {
     const { data } = await axios({
       method: 'get',
-      url: `${PATHS.PEOPLE}`,
+      url: `${PATHS.PEOPLE}?page=${page}`,
     });
     return data;
   },

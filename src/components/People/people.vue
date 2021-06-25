@@ -11,17 +11,36 @@ export default Vue.extend({
   components: {
     Card,
   },
-  data: () => ({
-    people: {},
-  }),
+  data() {
+    return {
+      people: {},
+      rootObject: {},
+      page: 1,
+    };
+  },
   methods: {
-    getPeople: async () => {
-      const people = await PeopleSrv.getPeople();
+    getPeople: async (page: number) => {
+      const people = await PeopleSrv.getPeople(page);
       return people;
+    },
+    async prevPage(): Promise<void> {
+      this.people = {};
+      this.page -= 1;
+      const data = await this.getPeople(this.page);
+      this.rootObject = data;
+      this.people = data.results;
+    },
+    async nextPage(): Promise<void> {
+      this.people = {};
+      this.page += 1;
+      const data = await this.getPeople(this.page);
+      this.rootObject = data;
+      this.people = data.results;
     },
   },
   async created() {
-    const data = await this.getPeople();
+    const data = await this.getPeople(this.page);
+    this.rootObject = data;
     data.results = data.results.map((item: Person) => {
       // eslint-disable-next-line no-param-reassign
       item.url = item.url.replace('https://swapi.dev/api', '');
