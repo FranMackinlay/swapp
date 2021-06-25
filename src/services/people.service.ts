@@ -1,5 +1,5 @@
 import axios from 'axios';
-import People from '../interfaces/people.interface';
+import People, { Person } from '../interfaces/people.interface';
 import PATHS from '../config/core.constants';
 
 const PeopleSrv = {
@@ -7,6 +7,13 @@ const PeopleSrv = {
     const { data } = await axios({
       method: 'get',
       url: `${PATHS.PEOPLE}`,
+    });
+    return data;
+  },
+  getPerson: async (id: number): Promise<Person> => {
+    const { data } = await axios({
+      method: 'get',
+      url: `${PATHS.PEOPLE}/${id}`,
     });
     return data;
   },
