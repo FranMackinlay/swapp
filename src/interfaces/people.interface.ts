@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 /* eslint-disable camelcase */
 export interface Person {
   name: string;
@@ -18,7 +19,7 @@ export interface Person {
   url: string;
 }
 
-export interface People {
+export default interface People {
   count: number;
   next: string;
   previous?: string;
