@@ -1,3 +1,8 @@
 <div id="people-component">
-  <h1>People</h1>
+  <h1 class="my-5">People</h1>
+  <div class="container">
+    <div class="row">
+      <Card v-for="item in people" class="col-3 mb-3" v-bind:person="item"></Card>
+    </div>
+  </div>
 </div>
