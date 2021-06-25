@@ -13,15 +13,32 @@ export default Vue.extend({
   },
   data: () => ({
     planets: {},
+    page: 1,
+    rootObject: {},
   }),
   methods: {
-    getPeople: async () => {
-      const planets = await PlanetsSrv.getPlanets();
+    getPlanets: async (page: number) => {
+      const planets = await PlanetsSrv.getPlanets(page);
       return planets;
+    },
+    async prevPage(): Promise<void> {
+      this.planets = {};
+      this.page -= 1;
+      const data = await this.getPlanets(this.page);
+      this.rootObject = data;
+      this.planets = data.results;
+    },
+    async nextPage(): Promise<void> {
+      this.planets = {};
+      this.page += 1;
+      const data = await this.getPlanets(this.page);
+      this.rootObject = data;
+      this.planets = data.results;
     },
   },
   async created() {
-    const data = await this.getPeople();
+    const data = await this.getPlanets(this.page);
+    this.rootObject = data;
     data.results = data.results.map((item: Planet) => {
       // eslint-disable-next-line no-param-reassign
       item.url = item.url.replace('https://swapi.dev/api', '');

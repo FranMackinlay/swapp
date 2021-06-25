@@ -3,10 +3,10 @@ import axios from 'axios';
 import PATHS from '../config/core.constants';
 
 const PlanetsSrv = {
-  getPlanets: async (): Promise<Planets> => {
+  getPlanets: async (page: number): Promise<Planets> => {
     const { data } = await axios({
       method: 'get',
-      url: `${PATHS.PLANETS}`,
+      url: `${PATHS.PLANETS}?page=${page}`,
     });
     return data;
   },
