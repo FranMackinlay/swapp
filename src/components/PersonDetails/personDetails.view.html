@@ -1,0 +1,11 @@
+
+<div id="card-component">
+  <b-card
+    v-bind:title="item.name"
+    tag="article"
+    style="height: 100%;"
+    class="mb-2"
+  >
+    <b-button v-bind:href="item.url" variant="primary">View {{item.name}}'s details</b-button>
+  </b-card>
+</div>
