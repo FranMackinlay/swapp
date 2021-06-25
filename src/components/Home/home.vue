@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import MainScreen from '../components/MainScreen/main-screen.component.vue';
+import MainScreen from '../MainScreen/main-screen.component.vue';
 
 export default Vue.extend({
   name: 'Home',
