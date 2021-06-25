@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="mt-5" alt="Vue logo" src="../assets/swapp-logo.png">
+    <img class="mt-5" alt="Vue logo" src="https://res.cloudinary.com/ducmbpfde/image/upload/v1624631190/swapp-logo_s8jbhs.png">
     <MainScreen msg="Welcome to Swapp"/>
   </div>
 </template>
